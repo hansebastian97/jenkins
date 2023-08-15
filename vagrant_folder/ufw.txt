@@ -1,0 +1,33 @@
+Jenkins - 192.168.56.133
+8080
+22
+
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+sudo ufw allow proto tcp from 192.168.56.135 to any port 22,80,8080,8081,9000,9001
+sudo ufw allow proto tcp from 192.168.56.140 to any port 22,80,8080,8081,9000,9001
+sudo ufw enable
+
+
+sonarqube - 192.168.56.135
+22
+80
+9000
+9001
+
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+sudo ufw allow proto tcp from 192.168.56.133 to any port 22,80,8080,8081,9000,9001
+sudo ufw allow proto tcp from 192.168.56.140 to any port 22,80,8080,8081,9000,9001
+sudo ufw enable
+
+
+Nexus - 192.168.56.140
+8081
+22
+
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+sudo ufw allow proto tcp from 192.168.56.133 to any port 22,80,8080,8081,9000,9001
+sudo ufw allow proto tcp from 192.168.56.135 to any port 22,80,8080,8081,9000,9001
+sudo ufw enable
